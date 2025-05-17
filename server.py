@@ -14,7 +14,7 @@ def client_thread(client_socket, clients, usernames):
 
     for client in clients:
         if client is not client_socket:
-            client.sendall(f"[+] User {username} has joined chat".encode())
+            client.sendall(f"\n[+] User {username} has joined chat\n\n".encode())
 
     while True:
         try:
@@ -23,12 +23,18 @@ def client_thread(client_socket, clients, usernames):
             if not message:
                 break
 
+            if message == "!users":
+                client_socket.sendall(f"\n[+] Users available: {','.join(usernames.values())}\n\n".encode())
+                continue
+
             for client in clients:
                 if client is not client_socket:
                     client.sendall(f"{message}\n".encode())
         except:
             break
-
+    client_socket.close()
+    clients.remove(client_socket)
+    del usernames[client_socket]
 
 def server_program():
 
