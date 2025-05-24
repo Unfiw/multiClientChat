@@ -194,7 +194,7 @@ Follow this step-by-step guide to see how the application works.
 ###  Step 1: Start the Server
 Run the server script.
 
-![Server Starting](screenshots/server_starting.png)
+![Server Starting](images/server_starting.png)
 
 ---
 
