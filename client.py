@@ -1,5 +1,6 @@
 #!/usr/bin/env python3 
 
+import ssl
 import socket
 import threading
 from tkinter import *
@@ -46,6 +47,7 @@ def client_program():
     port = 1234
 
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket = ssl._create_unverified_context().wrap_socket(client_socket, server_hostname='localhost')
     client_socket.connect((host, port))
 
     username = input(f"[+] Insert your username: ")

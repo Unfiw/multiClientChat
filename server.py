@@ -2,6 +2,7 @@
 
 import socket
 import threading 
+import ssl
 
 def client_thread(client_socket, clients, usernames):
 
@@ -44,6 +45,9 @@ def server_program():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Time wait 
     server_socket.bind((host, port))
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER) 
+    context.load_cert_chain(certfile="server-cert.pem", keyfile="server-key.key") 
+    server_socket = context.wrap_socket(server_socket, server_side=True) 
     server_socket.listen()
 
     print(f"[+] Server is listening...")
