@@ -230,18 +230,22 @@ Client 1 is notified that a new user has joined.
 
 ###  Step 5: Client 1 Sends a Message
 Client 1 sends a message.
+
 ![Client 1 Send Message](images/marco_message_to_marcelo.png)
 
 Client 2 receives it.
+
 ![Client 2 Receives](images/marcelo_window_receives_message.png)
 
 ---
 
 ###  Step 6: Client 2 Sends a Message
 Client 2 replies.
+
 ![Client 2 Send Message](images/marcelo_window_message_to_marco.png)
 
 Client 1 receives it.
+
 ![Client 1 Receives](images/marco_window_receives_message.png)
 
 ---
